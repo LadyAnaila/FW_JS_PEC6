@@ -24,3 +24,19 @@ Un **Observable** es una representación de una colección de eventos o valores 
  * Next: El valor siguiente en la secuencia.
 * Error: Una señal de que ocurrió un error, finalizando la secuencia.
 * Complete: Una señal de que la secuencia ha terminado correctamente.
+
+Una **Subscription** es una representación de la ejecución de un Observable. Es la manera en que un Observable comienza a emitir valores a los observadores. Al suscribirse a un Observable, se obtiene una Subscription, que se puede usar para cancelar la suscripción y evitar la recepción de futuros valores.
+
+Los **Operators** son funciones puras que permiten manipular y transformar flujos de datos emitidos por un Observable. Se utilizan para combinar, filtrar, mapear, y realizar otras operaciones sobre los datos. Con RxJS tenemos acceso a muchos tipos de operadores, como map, filter, merge, concat, o switchMap.
+
+Un **Subject** es un tipo especial de Observable que permite la emisión de valores a múltiples observadores de forma manual. Los Subjects son multicasting, lo que significa que pueden tener múltiples suscriptores y cada uno recibirá los mismos valores. Los Subjects también pueden actuar como observables y como observadores al mismo tiempo.
+
+Los **Schedulers** controlan la ejecución de tareas en RxJS, permitiendo especificar el contexto en el que las tareas se ejecutarán (por ejemplo, sincronamente, asincronamente, en un loop de animación, etc.). Los Schedulers son útiles para controlar la concurrencia y la planificación de tareas en la programación reactiva.
+
+
+## ) ¿Cuál es la diferencia entre promesas y observables?
+Las promesas retornan un único resultado de una operación asíncrona, mientras que los observables permiten manejar secuencias de valores y eventos a lo largo del tiempo. Si se necesita acceder solo al resultado final de una operación, las promesas son adecuadas, pero si lo que queremos es acceder a los flujos de datos continuos o múltiples eventos, los observables son una mejor opción.
+
+## e) ¿Cuál es la función de la tubería (*pipe*) async?
+
+En Angular, llamamos **tubería (*pipe*) async** a un operador de plantilla que se utiliza para suscribirse automáticamente a un Observable o Promesa y devolver el valor más reciente que ha emitido. Cuando se usa el *pipe* async, Angular maneja la suscripción y la cancelación de la misma cuando el componente se destruye, previniendo posibles fugas de memoria. Esto simplifica el manejo de datos asíncronos en los templates, mejorando la legibilidad y el rendimiento del código.
